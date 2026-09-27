@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 37 99 235;
+    --primary-foreground: 255 255 255;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+    --accent: 241 245 249;
+    --accent-foreground: 15 23 42;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 37 99 235;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    --primary: 59 130 246;
+    --primary-foreground: 255 255 255;
+    --secondary: 30 41 59;
+    --secondary-foreground: 248 250 252;
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+    --accent: 30 41 59;
+    --accent-foreground: 248 250 252;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 59 130 246;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-400; }
+  .dark ::-webkit-scrollbar-thumb { @apply bg-slate-600; }
+  .dark ::-webkit-scrollbar-thumb:hover { @apply bg-slate-500; }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: fade-in 0.3s ease-out; }
+  .page-container { @apply p-6 space-y-6 animate-fade-in; }
+  .card { @apply bg-card rounded-lg border border-border shadow-card p-6; }
+  .stat-card { @apply card hover:shadow-card-hover transition-shadow duration-200 cursor-default; }
+  .table-container { @apply card overflow-hidden p-0; }
+  .badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset; }
+  .badge-success { @apply badge bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-900/20 dark:text-green-400; }
+  .badge-warning { @apply badge bg-yellow-50 text-yellow-700 ring-yellow-600/20 dark:bg-yellow-900/20 dark:text-yellow-400; }
+  .badge-danger { @apply badge bg-red-50 text-red-700 ring-red-600/20 dark:bg-red-900/20 dark:text-red-400; }
+  .badge-info { @apply badge bg-blue-50 text-blue-700 ring-blue-600/20 dark:bg-blue-900/20 dark:text-blue-400; }
+  .badge-default { @apply badge bg-slate-50 text-slate-700 ring-slate-600/20 dark:bg-slate-900/20 dark:text-slate-400; }
+}

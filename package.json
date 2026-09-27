@@ -1,0 +1,22 @@
+{
+  "name": "imara360",
+  "version": "1.0.0",
+  "description": "IMARA 360 - Plateforme ERP pour la construction et l'immobilier",
+  "private": true,
+  "scripts": {
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "start /B npm run dev:backend && npm run dev:frontend",
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "seed": "npm run seed --prefix backend",
+    "build": "npm run build --prefix frontend",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:dev": "docker-compose --profile dev up -d",
+    "docker:logs": "docker-compose logs -f",
+    "test": "npm test --prefix backend"
+  },
+  "keywords": ["construction", "immobilier", "ERP", "MERN", "BTP", "gestion"],
+  "author": "IMARA 360",
+  "license": "MIT"
+}
