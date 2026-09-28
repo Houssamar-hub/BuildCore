@@ -85,5 +85,53 @@ export const PRIORITY_COLORS: Record<string, string> = {
 };
 
 export const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/v1';
-
 export const ITEMS_PER_PAGE = 20;
+export const CURRENCY = 'MAD';
+export const CURRENCY_SYMBOL = 'DH';
+export const LOCALE = 'fr-MA';
+
+export const EQUIPMENT_STATUS_LABELS: Record<string, string> = {
+  disponible: 'Disponible', en_utilisation: 'En utilisation', en_maintenance: 'En maintenance',
+  hors_service: 'Hors service', loue: 'Loué', vendu: 'Vendu',
+};
+export const EQUIPMENT_STATUS_COLORS: Record<string, string> = {
+  disponible: 'badge-success', en_utilisation: 'badge-info', en_maintenance: 'badge-warning',
+  hors_service: 'badge-danger', loue: 'badge-default', vendu: 'badge-default',
+};
+export const EQUIPMENT_TYPE_LABELS: Record<string, string> = {
+  grue: 'Grue', pelle: 'Pelle hydraulique', chargeuse: 'Chargeuse', betonniere: 'Bétonnière',
+  camion: 'Camion', vehicule: 'Véhicule', echafaudage: 'Échafaudage', groupe_electrogene: 'Groupe électrogène',
+  compresseur: 'Compresseur', pompe: 'Pompe', malaxeur: 'Malaxeur', nacelle: 'Nacelle',
+  forklift: 'Chariot élévateur', outillage: 'Outillage', autre: 'Autre',
+};
+export const MATERIAL_CATEGORY_LABELS: Record<string, string> = {
+  gros_oeuvre: 'Gros œuvre', second_oeuvre: 'Second œuvre', electricite: 'Électricité',
+  plomberie: 'Plomberie', menuiserie: 'Menuiserie', revetement: 'Revêtement',
+  peinture: 'Peinture', ferronnerie: 'Ferronnerie', isolation: 'Isolation',
+  charpente: 'Charpente', carrelage: 'Carrelage', sanitaire: 'Sanitaire', autre: 'Autre',
+};
+export const STOCK_STATUS_LABELS: Record<string, string> = { epuise: 'Épuisé', faible: 'Stock faible', normal: 'Normal' };
+export const STOCK_STATUS_COLORS: Record<string, string> = { epuise: 'badge-danger', faible: 'badge-warning', normal: 'badge-success' };
+export const EXPENSE_CATEGORY_LABELS: Record<string, string> = {
+  materiaux: 'Matériaux', main_oeuvre: "Main d'œuvre", transport: 'Transport', carburant: 'Carburant',
+  location: 'Location', maintenance: 'Maintenance', sous_traitance: 'Sous-traitance',
+  fournisseurs: 'Fournisseurs', logistique: 'Logistique', electricite: 'Électricité',
+  eau: 'Eau', telephonie: 'Téléphonie', formation: 'Formation', securite: 'Sécurité', autres: 'Autres',
+};
+export const INVOICE_STATUS_LABELS: Record<string, string> = {
+  brouillon: 'Brouillon', envoyee: 'Envoyée', payee: 'Payée',
+  partiellement_payee: 'Partiellement payée', en_retard: 'En retard', annulee: 'Annulée',
+};
+export const INVOICE_STATUS_COLORS: Record<string, string> = {
+  brouillon: 'badge-default', envoyee: 'badge-info', payee: 'badge-success',
+  partiellement_payee: 'badge-warning', en_retard: 'badge-danger', annulee: 'badge-default',
+};
+export const INCIDENT_STATUS_LABELS: Record<string, string> = { ouvert: 'Ouvert', en_cours: 'En cours', resolu: 'Résolu', clos: 'Clos' };
+export const INCIDENT_STATUS_COLORS: Record<string, string> = { ouvert: 'badge-danger', en_cours: 'badge-warning', resolu: 'badge-success', clos: 'badge-default' };
+export const ATTENDANCE_STATUS_LABELS: Record<string, string> = {
+  present: 'Présent', absent: 'Absent', retard: 'Retard', conge: 'Congé', maladie: 'Maladie', mission: 'Mission',
+};
+export const ATTENDANCE_STATUS_COLORS: Record<string, string> = {
+  present: 'badge-success', absent: 'badge-danger', retard: 'badge-warning',
+  conge: 'badge-info', maladie: 'badge-warning', mission: 'badge-default',
+};
