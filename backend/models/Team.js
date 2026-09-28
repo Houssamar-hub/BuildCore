@@ -8,32 +8,42 @@ const teamSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Nom de l\'équipe requis'],
       trim: true,
+      maxlength: [100, 'Nom max 100 caractères'],
     },
-    description: String,
-    leader: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Employee',
-      required: [true, 'Responsable d\'équipe requis'],
-    },
-    members: [{
-      employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
-      role: String,
-      joinedAt: { type: Date, default: Date.now },
-    }],
-    currentProject: {
+    project: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Project',
     },
-    assignedDate: Date,
-    endDate: Date,
+    leader: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    members: [
+      {
+        employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
+        role: { type: String, trim: true },
+        joinedAt: { type: Date, default: Date.now },
+      },
+    ],
     specialty: {
       type: String,
       enum: [
-        'gros_oeuvre', 'second_oeuvre', 'electricite', 'plomberie',
-        'menuiserie', 'peinture', 'carrelage', 'etancheite',
-        'terrassement', 'beton', 'ferraillage', 'mixte', 'autre',
+        'gros_oeuvre',
+        'second_oeuvre',
+        'electricite',
+        'plomberie',
+        'finitions',
+        'terrassement',
+        'charpente',
+        'menuiserie',
+        'peinture',
+        'revetements',
+        'polyvalente',
+        'autre',
       ],
+      default: 'polyvalente',
     },
+    description: String,
     isActive: { type: Boolean, default: true },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
@@ -48,7 +58,8 @@ teamSchema.virtual('memberCount').get(function () {
   return this.members ? this.members.length : 0;
 });
 
-teamSchema.index({ currentProject: 1 });
+teamSchema.index({ project: 1 });
+teamSchema.index({ leader: 1 });
 teamSchema.index({ isActive: 1 });
 
 const Team = mongoose.model('Team', teamSchema);
