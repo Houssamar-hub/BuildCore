@@ -12,6 +12,7 @@ export interface AuthUser {
   fullName: string;
   email: string;
   role: string;
+  phone?: string;
   avatar?: { url: string; publicId: string };
   preferences: { language: string; theme: string; notifications: boolean };
 }
