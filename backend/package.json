@@ -8,8 +8,9 @@
     "dev": "nodemon server.js",
     "seed": "node seed/index.js",
     "seed:reset": "node seed/index.js --reset",
-    "test": "jest --coverage",
+    "test": "jest --coverage --forceExit",
     "test:watch": "jest --watch",
+    "test:ci": "jest --coverage --forceExit --ci",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix"
   },
@@ -55,7 +56,16 @@
   "jest": {
     "testEnvironment": "node",
     "testMatch": ["**/tests/**/*.test.js"],
-    "collectCoverageFrom": ["controllers/**/*.js", "services/**/*.js"]
+    "collectCoverageFrom": [
+      "controllers/**/*.js",
+      "utils/**/*.js",
+      "middleware/**/*.js",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "coverage",
+    "verbose": true,
+    "testTimeout": 30000,
+    "forceExit": true
   },
   "keywords": ["construction", "immobilier", "gestion", "ERP", "BTP", "MERN"],
   "author": "IMARA 360",

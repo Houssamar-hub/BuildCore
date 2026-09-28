@@ -48,12 +48,20 @@ jobs:
         continue-on-error: true
 
       - name: Run tests
-        run: npm test
+        run: npm run test:ci
         env:
           NODE_ENV: test
           MONGO_URI: mongodb://localhost:27017/imara360_test
           JWT_SECRET: test_secret_key_minimum_32_characters_here
           JWT_REFRESH_SECRET: test_refresh_secret_minimum_32_chars
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-coverage
+          path: backend/coverage/
+          retention-days: 7
 
   # ─── Frontend ───────────────────────────────────────────────
   frontend-ci:
