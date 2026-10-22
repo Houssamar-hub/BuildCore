@@ -50,16 +50,14 @@ const searchRoutes = require('./routes/search.routes');
 
 const app = express();
 
-
+// ─────────────────────────────────────────
+// Sécurité
+// ─────────────────────────────────────────
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
 
-// CORS
-const allowedOrigins = [
-  process.env.CLIENT_URL || 'http://localhost:5173',
-  'http://localhost:3000',
-];
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
