@@ -16,6 +16,7 @@ const AppError = require('./utils/appError');
 const logger = require('./utils/logger');
 
 // Routes imports
+
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const projectRoutes = require('./routes/project.routes');
