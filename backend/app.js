@@ -50,7 +50,9 @@ const searchRoutes = require('./routes/search.routes');
 
 const app = express();
 
-
+// ─────────────────────────────────────────
+// Sécurité
+// ─────────────────────────────────────────
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
